@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#0F0D25">
+<title>Stimuler · Onboarding v2</title>
+<link rel="preload" href="fonts/InterDisplay-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="stage">
+  <div class="mockup" id="mockup">
+    <div class="phone" id="phone">
+
+      <!-- ============ 0 · SIGN UP (keeps its own art) ============ -->
+      <section class="screen s-signup" id="sSignup">
+        <img class="su-art" src="assets/signup.png" alt="Sign up">
+        <button class="su-hot" data-go style="top:481px;height:58px" aria-label="Continue with Google"></button>
+        <button class="su-hot" data-go style="top:564px;height:58px" aria-label="Continue with Apple"></button>
+        <button class="su-hot" data-go style="top:647px;height:58px" aria-label="Continue with Email"></button>
+        <button class="su-hot link" data-go style="top:726px;height:30px;left:112px;right:112px" aria-label="Sign in with phone number"></button>
+      </section>
+
+      <!-- ============ CHAT (frames 1 – 19) ============ -->
+      <section class="screen s-chat is-hidden" id="sChat">
+        <div class="onb-bg"></div>
+        <div class="statusbar"></div>
+        <div class="topbar" id="topbar">
+          <div class="progress-block">
+            <p class="progress-label" id="progressLabel">Let's get started!</p>
+            <div class="progress-row">
+              <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+              <span class="progress-flag"><svg viewBox="0 0 16 16"><path d="M4.5 14.5V2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M4.5 2.6h7.2l-1.7 2.7 1.7 2.7H4.5z" fill="currentColor"/></svg></span>
+            </div>
+          </div>
+        </div>
+        <div class="chat-scroll" id="chatScroll"><div class="chat-stream" id="chatStream"></div></div>
+
+        <!-- frame 1 · Sarah says hi (morphs into the first chat message) -->
+        <div class="hello" id="hello">
+          <div class="hello-sarah" id="helloSarah"><img src="assets/sarah-hi.png" alt="Sarah"></div>
+          <div class="hello-bubble" id="helloBubble"><p>Hi, I'm Sarah 👋</p></div>
+        </div>
+
+        <div class="bottombar gone" id="bottomBar">
+          <button class="pill pill-mute" id="muteBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 9v3a3 3 0 0 0 5.1 2.1M15 9.3V5a3 3 0 0 0-5.9-.8"/><path d="M19 11a7 7 0 0 1-1.1 3.8M5 11a7 7 0 0 0 10.6 6M12 18v3"/><path d="M3 3l18 18"/></svg>
+            <span>Mute</span></button>
+          <button class="pill pill-skip" id="skipBtn"><span>Skip</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l5 5-5 5M13 7l5 5-5 5"/></svg></button>
+        </div>
+
+        <div class="micbar gone" id="micBar">
+          <div class="mic-tip" id="micTip">Tap the mic and read</div>
+          <div class="mic-row">
+            <button class="mic-side gone" id="hintBtn" aria-label="See a model answer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1.1 1.3 1.1 2.2h5c0-.9.5-1.7 1.1-2.2A6 6 0 0 0 12 3z"/></svg>
+            </button>
+            <div class="convmic" id="convMic">
+              <button class="cm-orb" id="micOrb" aria-label="Speak">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+              </button>
+              <div class="cm-rec">
+                <button class="cm-x" id="micCancel" aria-label="Cancel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+                <div class="cm-wave" id="micWave"></div>
+                <button class="cm-ok" id="micDone" aria-label="Done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></button>
+              </div>
+            </div>
+            <span class="mic-side-spacer" id="micSpacer"></span>
+          </div>
+          <button class="mic-skip" id="micSkip">I can't speak right now</button>
+        </div>
+      </section>
+
+      <!-- ============ 20 · Putting your report together ============ -->
+      <section class="screen s-takeover is-hidden" id="sReport">
+        <div class="onb-bg"></div>
+        <div class="statusbar"></div>
+        <div class="rp-body">
+          <div class="rp-avatar"><span class="rp-ring"></span><img src="assets/sarah-report.png" alt=""></div>
+          <h2 class="rp-title">Putting your report<br>together…</h2>
+          <ul class="rp-ticks" id="rpTicks"></ul>
+          <p class="rp-foot">Takes about 5 seconds, yep we're that fast!</p>
+        </div>
+        <div class="rp-snap" id="rpSnap"><p class="rp-snap-cap">Built from your answers. <b class="rp-snap-tap"><svg viewBox="0 0 16 16"><path d="M6 8.5V3.2a1.2 1.2 0 0 1 2.4 0V7l3.1.6a1.5 1.5 0 0 1 1.2 1.7l-.5 3a2 2 0 0 1-2 1.7H7.6a2 2 0 0 1-1.6-.8L3.6 10a1.1 1.1 0 0 1 1.6-1.5z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>Tap one to change it.</b></p><div class="rp-snap-chips" id="rpSnapChips"></div></div>
+        <button class="cta" id="rpCta">Continue</button>
+      </section>
+
+      <!-- ============ 21 · Your level ============ -->
+      <section class="screen s-takeover is-hidden" id="sLevel">
+        <div class="onb-bg"></div>
+        <div class="statusbar"></div>
+        <header class="tk-head">
+          <p class="kicker">Your level</p>
+          <h2 class="tk-title" id="lvTitle">You're a Beginner</h2>
+          <p class="tk-sub" id="lvLine"></p>
+        </header>
+        <div class="lv-ladder" id="lvLadder"></div>
+        <div class="lv-well">
+          <p class="kicker sm">What you did well</p>
+          <ul id="lvWell"></ul>
+          <p class="kicker sm lv-imp-cap">To improve</p>
+          <ul id="lvImprove" class="lv-imp"></ul>
+        </div>
+        <button class="cta" id="lvCta">Continue</button>
+      </section>
+
+      <!-- ============ 22 · Your errors ============ -->
+      <section class="screen s-takeover is-hidden" id="sFix">
+        <div class="onb-bg"></div>
+        <div class="statusbar"></div>
+        <header class="tk-head">
+          <p class="kicker">Quick fix</p>
+          <h2 class="tk-title">Two words need<br>a little work</h2>
+          <p class="tk-sub" id="fxSub">Let's correct them before we build your plan.</p>
+        </header>
+        <div class="fx-stack">
+          <div class="glass-card fx-card"><p class="fx-label" id="fxLabel">From your reading</p><p class="fx-text" id="fxText"></p></div>
+          <div class="fx-what"><p class="kicker sm">What to fix</p><ul class="fx-list" id="fxList"></ul></div>
+        </div>
+        <button class="cta" id="fxCta">Let's correct them</button>
+      </section>
+
+      <!-- ============ 23 · Practice the word ============ -->
+      <section class="screen s-takeover is-hidden" id="sPractice">
+        <div class="onb-bg"></div>
+        <div class="statusbar"></div>
+        <header class="tk-head">
+          <p class="kicker">Practice</p>
+          <h2 class="tk-title" id="prTitle">Let's improve the 'ai' sound</h2>
+        </header>
+        <div class="fx-stack">
+          <div class="glass-card fx-card"><p class="fx-label" id="prLabel">From your reading</p><p class="fx-text" id="prText"></p></div>
+        </div>
+        <div class="pr-bottom">
+          <p class="pr-cue">Read the word <b>out loud</b></p>
+          <div class="pr-word" id="prWord">
+          <div class="pw-top">
+            <div><p class="pw-word" id="pwWord">paint</p><p class="pw-ipa" id="pwIpa">/peɪnt/</p></div>
+            <button class="pw-listen" id="pwListen" aria-label="Listen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button>
+          </div>
+          <p class="pw-hint" id="pwHint"></p>
+          <div class="pw-bottom">
+            <div class="pw-score"><span class="pw-num" id="pwNum">44%</span><span class="pw-cap" id="pwCap">Current score</span></div>
+            <button class="pw-speak" id="pwSpeak">
+              <span class="pws-idle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Tap to speak</span>
+              <span class="pws-rec"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="pws-done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Sounds clear</span>
+            </button>
+          </div>
+        </div>
+        </div>
+        <button class="cta cta-hidden" id="prCta">Continue</button>
+      </section>
+
+      <!-- ============ 24 · Quick win ============ -->
+      <section class="screen s-takeover s-win is-hidden" id="sWin">
+        <div class="onb-bg"></div>
+        <div class="statusbar"></div>
+        <div class="topbar">
+          <div class="progress-block">
+            <p class="progress-label">Nice work!</p>
+            <div class="progress-row">
+              <div class="progress-track"><div class="progress-fill full"></div></div>
+              <span class="progress-flag on"><svg viewBox="0 0 16 16"><path d="M4.5 14.5V2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M4.5 2.6h7.2l-1.7 2.7 1.7 2.7H4.5z" fill="currentColor"/></svg></span>
+            </div>
+          </div>
+        </div>
+        <div class="win-stream" id="winStream"></div>
+        <button class="cta cta-hidden" id="winCta">Start my plan</button>
+      </section>
+
+      <!-- ============ 25 · Your plan ============ -->
+      <section class="screen s-takeover is-hidden" id="sPlan">
+        <div class="onb-bg"></div>
+        <div class="statusbar"></div>
+        <header class="tk-head">
+          <p class="kicker">Your plan</p>
+          <h2 class="tk-title" id="plTitle"></h2>
+          <div class="pl-social"><span class="pl-faces"><i>A</i><i>R</i><i>S</i></span><span id="plSocial"></span></div>
+        </header>
+        <div class="pl-chart" id="plChart"></div>
+        <p class="pl-body" id="plBody"></p>
+        <button class="cta" id="plCta">Start my plan</button>
+      </section>
+
+      <!-- ============ 26 · Paywall (designer-owned, shown as built) ============ -->
+      <section class="screen s-paywall is-hidden" id="sPaywall">
+        <div class="pw-scroll"><img src="assets/paywall.jpg" alt="Paywall"></div>
+        <button class="pw-close" id="pwClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </section>
+
+      <!-- OS dialogs (notifications, microphone) -->
+      <div class="sheet-scrim" id="sheetScrim"><div class="sheet" id="sheet"></div></div>
+      <div class="os-scrim" id="osScrim"><div class="os-dialog" id="osDialog"></div></div>
+      <div class="home-ind"></div>
+    </div>
+  </div>
+</main>
+
+<!-- review panel (desktop) -->
+<aside class="devpanel" id="devpanel">
+  <h3>Onboarding v2</h3>
+  <p class="dp-note">Pick a pathway, then jump to any step.</p>
+  <p class="dp-cap">Goal</p><div class="dp-chips" id="dpGoal"></div>
+  <p class="dp-cap">Situation</p><div class="dp-chips" id="dpSit"></div>
+  <p class="dp-cap">Level</p><div class="dp-chips" id="dpLvl"></div>
+  <p class="dp-cap">Jump to</p><div class="dp-chips" id="dpStep"></div>
+</aside>
+<button class="restart" id="restart">Restart</button>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
