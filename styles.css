@@ -1,3 +1,4 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap');
 /* ============================================================
    Stimuler · India onboarding v2
    Background  = Paper frame "Background for the onboarding"
@@ -687,3 +688,12 @@ body{background:#F4F3F8;font-family:var(--font-body);color:var(--text-hi);overfl
 .fx-main{gap:3px;}
 #lvLine{display:none;}
 .lv-ladder{top:184px;}
+
+/* round 5 · pain question as quote chips (designer frame IN5-0) */
+.qchips{width:350px;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;}
+.qchip{padding:10px 14px;border-radius:999px;background:#23213F;border:1px solid transparent;font-family:'Satoshi',var(--font-display);font-weight:500;font-size:15px;line-height:20px;color:#E4E3EC;text-align:right;
+  transition:opacity .3s var(--ease-out),background .2s,transform .15s;animation:chip-in .4s var(--ease-out) both;}
+.qchip:hover{background:#2C2950;}
+.qchip:active{transform:scale(.96);}
+.qchip.sel{background:linear-gradient(90deg,#3B43A4,#351C6B);border-color:#6A6FD4;color:#fff;font-weight:700;}
+.qchips.picked .qchip:not(.sel){opacity:.4;}

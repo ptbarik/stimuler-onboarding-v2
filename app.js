@@ -336,20 +336,22 @@ function phoneCard(){
   });
 }
 
-/* single-line stacked options (pain question) */
+/* pain question: quote chips, right-aligned (designer frame IN5-0) */
 function listQ(items, forced){
   if (FF){ const it = items.find(i => i.value === forced) || items[0]; userChip(it.label); return Promise.resolve(it.value); }
   return new Promise(resolve => {
-    const wrap = el(`<div class="opts"><p class="opt-head">Select an option</p><div class="opt-list"></div></div>`);
+    const wrap = el(`<div class="opts"><p class="opt-head">Select an option</p><div class="qchips"></div></div>`);
+    const box = wrap.querySelector('.qchips');
     items.forEach((it, i) => {
-      const b = el(`<button class="opt line"><span class="o-label">${it.label}</span></button>`);
+      const txt = it.value === 'other' ? it.label : `“${it.label}”`;
+      const b = el(`<button class="qchip">${txt}</button>`);
       b.style.animationDelay = `${i * 45}ms`;
       b.addEventListener('click', () => {
         if (wrap.dataset.done) return; wrap.dataset.done = 1;
-        b.classList.add('sel'); pips(b);
-        setTimeout(() => { disarmSkip(); wrap.remove(); if (it.value !== 'other') userChip(it.label); resolve(it.value); }, 420);
+        b.classList.add('sel'); box.classList.add('picked'); pips(b);
+        setTimeout(() => { disarmSkip(); wrap.remove(); if (it.value !== 'other') userChip(it.label); resolve(it.value); }, 620);
       });
-      wrap.querySelector('.opt-list').appendChild(b);
+      box.appendChild(b);
     });
     stream.appendChild(wrap); toEnd(); armSkip();
   });
